@@ -1,20 +1,14 @@
-# Repositorio de Proyectos: Machine Learning y Análisis de Datos
+# Clasificación de Marketing Bancario
 
-Este repositorio contiene una colección de implementaciones técnicas que abarcan diversas ramas del aprendizaje automático, desde el aprendizaje supervisado (Clasificación y Regresión) hasta el aprendizaje no supervisado (Clustering) y técnicas de preprocesamiento avanzado (PCA).
+Este proyecto implementa un modelo de aprendizaje supervisado para predecir el éxito de las campañas de marketing directo de una institución bancaria. El objetivo es determinar si un cliente contratará un depósito a plazo fijo basándose en sus atributos demográficos y comportamiento financiero previo.
 
-## Contenido del Repositorio
+## Contenido del Archivo
 
-1. **Bank Marketing.ipynb**: Modelo de clasificación binaria para predecir si un cliente se suscribirá a un depósito a plazo fijo. Utiliza el dataset de marketing bancario de la UCI para analizar comportamientos basados en campañas de telemarketing.
-
-2. **customers_cluster.ipynb**: Implementación de segmentación de clientes mayoristas mediante K-Means. Agrupa a los usuarios según sus patrones de gasto anuales para identificar perfiles comerciales específicos.
-
-3. **power_consumption.ipynb**: Análisis y predicción de series temporales aplicado al consumo eléctrico doméstico. Utiliza redes neuronales para estimar la demanda energética futura basándose en dependencias temporales.
-
-4. **spambase_pca.ipynb**: Sistema de detección de correo no deseado que utiliza Análisis de Componentes Principales (PCA) para la reducción de dimensionalidad, optimizando el entrenamiento de una red neuronal de clasificación.
+* **Bank Marketing.ipynb**: Notebook que contiene el análisis de datos, el preprocesamiento de variables categóricas y el entrenamiento del modelo de clasificación.
 
 ## Requerimientos de Software
 
-Para la ejecución de cualquiera de los notebooks, se deben instalar las siguientes dependencias. Las versiones listadas garantizan la compatibilidad con los métodos de serialización utilizados:
+Para la correcta ejecución de este notebook, se requiere la instalación de las siguientes librerías de Python. Las versiones listadas corresponden a las especificaciones técnicas del entorno de desarrollo:
 
 * numpy (v1.26.x)
 * pandas (v2.1.x)
@@ -25,19 +19,19 @@ Para la ejecución de cualquiera de los notebooks, se deben instalar las siguien
 
 ## Entorno de Ejecución Recomendado
 
-Se recomienda el uso de **Google Colab** para ejecutar estos archivos. El entorno proporciona las librerías necesarias preinstaladas y facilita la conexión con el `ucimlrepo` para la descarga automática de los datasets.
+Se recomienda el uso de **Google Colab**. El entorno facilita la gestión de dependencias y permite la conexión directa con el repositorio de la UCI para la descarga automática del dataset mediante el ID 222.
 
 ---
 
-## Persistencia de Modelos
+## Persistencia del Modelo
 
-Todos los notebooks incluyen una fase de exportación mediante la librería `pickle`. Este proceso genera archivos con extensión `.sav` que permiten cargar los modelos entrenados en otros entornos sin necesidad de repetir el proceso de ajuste.
+El notebook incluye una sección de guardado del modelo entrenado mediante la librería `pickle`.
 
-* **Ejemplo de carga**: `modelo = pickle.load(open('nombre_archivo.sav', 'rb'))`
+* **Archivo generado**: `finalized_model_bank_marketing.sav`
+* **Propósito**: Permitir la reutilización del modelo en aplicaciones de predicción en tiempo real sin necesidad de reentrenamiento.
 
-| Proyecto | Objetivo Técnico | Dataset |
-| :--- | :--- | :--- |
-| Bank Marketing | Clasificación | UCI Bank Marketing |
-| Customers Cluster | Clustering | Wholesale Customers |
-| Power Consumption | Regresión (Series Temporales) | Household Power Consumption |
-| Spambase PCA | Clasificación + PCA | Spambase |
+| Etapa | Descripción |
+| :--- | :--- |
+| Carga | Uso de ucimlrepo (id=222) para obtener features y targets. |
+| Evaluación | Cálculo de métricas de precisión (Accuracy Score). |
+| Visualización | Generación de Matrices de Confusión mediante ConfusionMatrixDisplay. |
